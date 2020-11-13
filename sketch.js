@@ -15,6 +15,7 @@ var particles = [];
 var plinkos = [];
 var division = [];
 
+
 function setup() {
   createCanvas(480,800);
   
@@ -55,15 +56,20 @@ function setup() {
     plinkos.push(new Plinko(j,375));
   }
 
-  if(frameCount%60===0){
-    particles.push(new particle(random(width/2-10, width/2+10),10,10));
-  }
+ 
   
 }
 
 
 function draw() {
-  background("black"); 
+  background("black");
+  
+  
+  if(frameCount%60===0)
+  { 
+    particles.push(new Particle(random(width/2-30, width/2+30), 10,10)); 
+    score++
+  }
 
   for (var j = 0;j < particles.length; j++){
     particles[j].display();
@@ -71,10 +77,11 @@ function draw() {
   for (var k = 0; k < division.length; k++){
     division[k].display();
   }
- for(var l = 0;l>plinkos.length;l++ ){
+ for(var l = 0;l<plinkos.length;l++ ){
    plinkos[l].display();
  }
   drawSprites();
+  text("SCORE"+score, 20,40)
   
   }
   function mousePressed()

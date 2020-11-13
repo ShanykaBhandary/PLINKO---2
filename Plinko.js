@@ -1,18 +1,18 @@
 class Plinko{
-    constructor(x,y,width,height){
+    constructor(x,y){
       var options={
         isStatic:true
       
       }  
-        this.body = Bodies.rectangle(x,y,width,height,options);
-        this.width = width;
-        this.height = height;
+      this.r = 10
+      this.body = Bodies.circle(x,y,10,options);
+       
     }
     display(){
         var pos = this.body.position;
         var angle = this.body.angle;
 
-        rectMode(CENTER);
-        rect(pos.x, pos.y, this.width, this.height)
+       ellipseMode(CENTER);
+        ellipse(pos.x, pos.y, this.r, this.r)
     }
 } 
